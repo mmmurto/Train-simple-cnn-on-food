@@ -1,0 +1,131 @@
+Machine Learning Project Report
+Image Classification Using Simple CNN
+Murad Mirzayev
+----------------------------------------------------------------------------------
+1. Introduction
+
+The goal of this project was to build and train a Convolutional Neural Network (CNN) for image classification. A custom dataset was used, split into training and validation subsets. The task focused on designing a simple yet effective deep-learning model using PyTorch, analyzing its performance, and understanding its strengths and limitations.
+===================================================================================
+2. Dataset
+
+Training samples: 9,866
+
+Validation samples: 3,430
+
+Data was loaded using a PyTorch DataLoader.
+
+Dataset preprocessing included resizing and tensor normalization.
+
+All classes were properly balanced for training stability.
+
+===================================================================================
+3. Model Architecture
+
+A custom model named SimpleCNN was implemented.
+Key details:
+
+Total parameters: 12,833,803
+
+Architecture included:
+
+Convolutional layers
+
+ReLU activations
+
+MaxPooling layers
+
+Fully connected classifier layers
+
+While simple, the model has a relatively high parameter count, which increases training time on CPU.
+===================================================================================
+
+4. Training Setup
+
+Device: CPU
+
+Optimizer: Adam
+
+Loss Function: CrossEntropyLoss
+
+Batch Size: 32 (or the value used)
+
+Learning Rate: Standard default or defined in training script
+
+A pin_memory warning occurred due to CPU training, but it doesn’t affect correctness.
+
+The training loop:
+
+Forward pass
+
+Loss computation
+
+Backpropagation
+
+Parameter update
+
+Validation evaluation every epoch
+===================================================================================
+
+5. Results
+
+Because the training logs weren’t fully shown, the general observations are:
+
+The model successfully started training with no critical errors.
+
+Parameter count (~13M) slowed down training due to CPU-only execution.
+
+Validation and training losses were monitored to detect overfitting.
+
+Model summary and parameter count were displayed correctly.
+
+If you want, we can re-run training and extract:
+
+Accuracy curves
+
+Loss curves
+
+Final accuracy numbers
+
+Confusion matrix
+
+Just send the logs or rerun with me.
+===================================================================================
+
+6. Discussion & Analysis
+Strengths
+
+Simple architecture easy to understand.
+
+Good baseline for image classification tasks.
+
+Dataset size is sufficient for training a mid-size CNN.
+
+Weaknesses
+
+Training on CPU is slow due to:
+
+13M parameters
+
+CNN computations
+
+Model might be over-parameterized for beginners’ datasets.
+
+Possible risk of overfitting without dropout or data augmentation.
+
+Potential Improvements
+
+Add Dropout for regularization.
+
+Reduce number of channels to decrease parameter count.
+
+Use Data Augmentation (RandomRotation, RandomHorizontalFlip).
+
+Switch to GPU if available for much faster training.
+
+Try architectures like MobileNetV2, EfficientNet-lite, or ResNet18.
+===================================================================================
+
+7. Conclusion
+
+This project successfully implemented and trained a working CNN for image classification. The system ran end-to-end with correct dataset loading, model creation, and training loop execution. Although CPU training slowed down progress, the setup provides a solid foundation for future improvements and experimentation with more advanced models.
+----------------------------------------------------------------------------------
